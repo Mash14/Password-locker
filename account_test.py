@@ -30,15 +30,29 @@ class TestAccount(unittest.TestCase):
 
     def test_save_account(self):
         """
-        test_save_contact test case is used to test if the object is being saved in the user list
+        test_save_account test case is used to test if the object is being saved in the account list
         """
 
         self.new_account.save_account()
         self.assertEqual(len(Account.account_list),1)
     
+
     def tearDown(self):
         """
         tearDown method that does clean up after each test case has run
         """
 
         Account.account_list = []
+
+
+    def test_save_multiple_accounts(self):
+        """
+        test_save_multiple_accounts is a test done to check if we can save multiple accounts
+        """
+
+        self.new_account.save_account()
+        test_account = Account("Insta","Dancemokey")
+        test_account.save_account()
+        self.assertEqual(len(Account.account_list),2)
+
+
