@@ -38,3 +38,18 @@ class Account:
         """
 
         return cls.account_list
+
+    @classmethod
+    def find_by_account_name(cls,acc_name):
+        '''
+        Method that takes in the account name and returns a account that matches that name.
+
+        Args:
+            acc_name: Account name to search for
+        Returns :
+            Account that matches the name.
+        '''
+
+        for account in cls.account_list:
+            if account.acc_name == acc_name:
+                return account

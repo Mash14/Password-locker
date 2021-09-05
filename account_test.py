@@ -77,5 +77,20 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(Account.display_account(),Account.account_list)
 
 
+    def test_find_account_by_account_name(self):
+        '''
+        test to check if we can find an account by using its name and display information
+        '''
+
+        self.new_account.save_account()
+        test_account = Account("Insta","Dancemokey") 
+        test_account.save_account()
+
+        found_account = Account.find_by_account_name("Insta")
+
+        self.assertEqual(found_account.acc_name,test_account.acc_name)
+
+
+
 
 
