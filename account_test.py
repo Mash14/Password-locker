@@ -56,3 +56,17 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(len(Account.account_list),2)
 
 
+    def test_delete_account(self):
+        """
+        test_delete_account is to test if we can remove an account from the account_list
+        """
+
+        self.new_account.save_account()
+        test_account = Account("Insta","Dancemokey")
+        test_account.save_account()
+
+        self.new_account.delete_account()
+        self.assertEqual(len(Account.account_list),1)
+
+
+
