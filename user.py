@@ -45,3 +45,18 @@ class User:
         for user in cls.user_list:
             if user.password == password:
                 return user
+
+    @classmethod
+    def user_exist(cls,password):
+        '''
+        Method that checks if a contact exists from the contact list.
+        Args:
+            number: Phone number to search if it exists
+        Returns :
+            Boolean: True or false depending if the contact exists
+        '''
+        for user in cls.user_list:
+            if user.password == password:
+                    return True
+
+        return False
