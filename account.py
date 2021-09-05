@@ -30,3 +30,11 @@ class Account:
         """
 
         Account.account_list.remove(self)
+
+    @classmethod
+    def display_account(cls):
+        """
+        method that returns a list of all saved accounts
+        """
+
+        return cls.account_list

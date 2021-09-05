@@ -69,4 +69,13 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(len(Account.account_list),1)
 
 
+    def test_display_all_accounts(self):
+        """
+        test_display_account is a method that returns a list of accounts saved
+        """
+
+        self.assertEqual(Account.display_account(),Account.account_list)
+
+
+
 
