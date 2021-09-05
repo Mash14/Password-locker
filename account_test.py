@@ -91,6 +91,24 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(found_account.acc_name,test_account.acc_name)
 
 
+    def test_account_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the account.
+        '''
+
+        self.new_account.save_account()
+        test_account = Account("Insta","Dancemokey") # new account
+        test_account.save_account()
+
+        account_exists = Account.account_exist("Insta")
+
+        self.assertTrue(account_exists)
+
+        
+if __name__ == '__main__':
+    unittest.main()
+
+
 
 
 
