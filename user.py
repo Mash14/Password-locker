@@ -29,3 +29,19 @@ class User:
         """
 
         User.user_list.append(self)
+
+    @classmethod
+    def find_by_password(cls,password):
+        """
+        Method that takes in a password and returns the user details that match that password
+        
+        Args:
+            password: password of the user's account
+        
+        Returns: 
+            User details of the person that matches the password
+        """
+
+        for user in cls.user_list:
+            if user.password == password:
+                return user
