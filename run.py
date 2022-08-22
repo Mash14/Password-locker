@@ -70,6 +70,7 @@ def copy_password(name):
     '''
     Function to copy an accounts password to email
     '''
+    return Account.copy_credentials(name)
     found_acc = Account.find_account_by_name(name)
     pyperclip.copy(found_acc.password)
     return pyperclip.paste()
@@ -174,13 +175,16 @@ def main():
 
                             elif answ == 'gen':
                                 choices = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+'
-                                length = len(choices)
+                                
                                 print("Give the length to your password: Use numbers not words")
-                                if int:
-                                    lent = int(input())
-                                else:
-                                    print("Use numbers not words")
-                                    lent = int(input())
+                                while True:
+                                    lenth = input()
+                                    if lenth.isdecimal():
+                                        lent = int(lenth)
+                                        break
+                                    else:
+                                        print("Use numbers not words")
+                                # joining a list created by the sample method as it loops through the choices to fom the random list
                                 psword = "".join(random.sample(choices,lent))
                                 print(f"Your new password is '{psword}'")
                             else:
@@ -195,7 +199,7 @@ def main():
                         if display_accounts():
                             print("Here is a list of all your credential accounts:")
                             print('\n')
-
+                            print("Account Name -- Account Username -- Account Password")
                             for account in display_accounts():
                                 print(f"{account.name} -- {account.username} -- {account.password}")
                                 print("*"*10)
@@ -228,6 +232,7 @@ def main():
                         print('\n')
                         if check_account_exists(search_account):
                             search_account = find_account(search_account)
+                            print("Account Name --- Account Username --- Account Password")
                             print(f"{search_account.name} --- {search_account.username} --- {search_account.password}")
                             print('*' * 10)
                         else:
@@ -242,18 +247,23 @@ def main():
                             account = find_account(ac_name)
                             copy_password(account.name)
                             print(f"{account.name}'s password copied to clipboard")
+                        else:
+                            print("That account does not exist")
 
                     elif short_code == "ex":
-                        print("Bye ...Till next time")
+                        print(f"Bye {fname}...Till next time")
                         print("\n")
                         break
 
                     else:
                         print("I really didn't get that. Please use the short codes provided")
-            else:   
-                print("\n")
-                print("You have inputted the wrong username or password")
-                print("\n")
+        elif short_code == "ex":
+            print("Password Locker powered off")
+            break 
+        else:   
+            print("\n")
+            print("You have inputted the wrong username or password")
+            print("\n")
 
 
 if __name__ == '__main__':

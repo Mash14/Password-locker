@@ -82,6 +82,7 @@ class TestAccount(unittest.TestCase):
         account_exist = Account.account_exists(second_account.name)
         self.assertTrue(account_exist)
 
+# python3 -m pip install pyperclip
     def test_copy_to_clipboard(self):
         '''
         Test to confirm that we are copying the assword from a users account
