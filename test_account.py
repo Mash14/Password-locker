@@ -85,7 +85,7 @@ class TestAccount(unittest.TestCase):
 # python3 -m pip install pyperclip
     def test_copy_to_clipboard(self):
         '''
-        Test to confirm that we are copying the assword from a users account
+        Test to confirm that we are copying the password from a users account
         '''
         self.new_account.save_account()
         second_account = Account("Twitter","Mark","1234")

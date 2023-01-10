@@ -71,9 +71,9 @@ def copy_password(name):
     Function to copy an accounts password to email
     '''
     return Account.copy_credentials(name)
-    found_acc = Account.find_account_by_name(name)
-    pyperclip.copy(found_acc.password)
-    return pyperclip.paste()
+    # found_acc = Account.find_account_by_name(name)
+    # pyperclip.copy(found_acc.password)
+    # return pyperclip.paste()
 
 
 
@@ -179,12 +179,18 @@ def main():
                                 print("Give the length to your password: Use numbers not words")
                                 while True:
                                     lenth = input()
+                                    # also be
+                                    # if isinstance(lenth,int):
+                                    #     lent = int(lenth)
+                                    #     break
+                                    # else:
+                                    #     print("Use numbers and please try not to be dumb")
                                     if lenth.isdecimal():
                                         lent = int(lenth)
                                         break
                                     else:
                                         print("Use numbers not words")
-                                # joining a list created by the sample method as it loops through the choices to fom the random list
+                                # joining a list created by the sample method as it loops through the choices to form a random list
                                 psword = "".join(random.sample(choices,lent))
                                 print(f"Your new password is '{psword}'")
                             else:
@@ -257,13 +263,16 @@ def main():
 
                     else:
                         print("I really didn't get that. Please use the short codes provided")
+            else:   
+                print("\n")
+                print("You have inputted the wrong username or password")
+                print("\n")
+                
         elif short_code == "ex":
             print("Password Locker powered off")
             break 
         else:   
-            print("\n")
-            print("You have inputted the wrong username or password")
-            print("\n")
+            print("I really didn't get that. Please use the short codes provided")
 
 
 if __name__ == '__main__':
